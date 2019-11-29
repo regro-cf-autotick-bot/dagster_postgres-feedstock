@@ -21,8 +21,8 @@ requirements:
     - setuptools
   run:
     - python
-    - dagster {{ version }}
-    - psycopg2 2.7.6.1.*
+    - dagster {{ version }}.*
+    - psycopg2
 
 test:
   imports:
@@ -37,4 +37,4 @@ about:
 
 extra:
   recipe-maintainers:
-    - xhochy
+    - conda-forge/dagster
