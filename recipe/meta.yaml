@@ -1,18 +1,18 @@
 {% set name = "dagster_postgres" %}
-{% set version = "0.6.5" %}
+{% set version = "0.7.1" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: 491cf3bf9e8c065c2db5aad47ae3aea8d4f7cfb5d69922f21760055c579b4450
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('_', '-') }}-{{ version }}.tar.gz
+  sha256: ae1a3eb0520f2851992a297cefa2a13518c1444e638063b03d24e95fa3d149e1
 
 build:
   number: 0
   noarch: python
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
@@ -29,11 +29,11 @@ test:
     - dagster_postgres
 
 about:
-  home: "https://github.com/dagster-io/dagster/tree/master/python_modules/libraries/dagster-postgres"
+  home: https://github.com/dagster-io/dagster/tree/master/python_modules/libraries/dagster-postgres
   license: Apache-2.0
   license_family: APACHE
   license_file: LICENSE
-  summary: "A Dagster integration for postgres"
+  summary: A Dagster integration for postgres
 
 extra:
   recipe-maintainers:
